@@ -296,7 +296,6 @@
         <button class="btn btn-theme-outline selected" data-filter="*">All</button>
         <button class="btn btn-theme-outline" data-filter=".apps">Apps</button>
         <button class="btn btn-theme-outline" data-filter=".ui-ux">UI/UX</button>
-        <button class="btn btn-theme-outline" data-filter=".graphic">Graphic</button>
       </div>
  
       <div class="gridder my-3">
@@ -461,7 +460,8 @@
             data:$("#submit-form").serialize(),
             method:"post",
             success:function (response){
-                alert("Form submitted successfully")
+              alert("Form submitted successfully")       
+              
                 window.location.reload()
                 //window.location.href="https://google.com"
             },
