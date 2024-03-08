@@ -92,7 +92,8 @@
 
 .page-home .navbar.floating {
   top: 0;
-  background-color: #343a40;
+  background-color: #00000075;
+  backdrop-filter: blur(3px);
 }
 
 .page-home .caption-header {
