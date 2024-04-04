@@ -95,7 +95,7 @@
   top: 0;
   background-color: #000000c7;
   backdrop-filter: blur(4px);
-  box-shadow: rgb(0 0 0 / 52%) 0px 0px 6px 2px;           
+  box-shadow: #646cff 0px 0px 6px 2px;           
 }
 
 .page-home .caption-header {

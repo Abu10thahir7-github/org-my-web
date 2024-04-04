@@ -30,6 +30,9 @@
   
   <link rel="stylesheet" type="text/css" href="./css/topbar.virtual.css">
 
+
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css" integrity="sha384-4LISF5TTJX/fLmGSxO53rV4miRxdg84mZsxmO8Rx5jGtp/LbrixFETvWa5a6sESd" crossorigin="anonymous"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css" integrity="sha384-4LISF5TTJX/fLmGSxO53rV4miRxdg84mZsxmO8Rx5jGtp/LbrixFETvWa5a6sESd" crossorigin="anonymous"></head>
 <body class="theme-blue">
   
@@ -366,7 +369,7 @@
         </div>
         <div class="grid-item apps ios wow zoomIn">
           <div class="img-place" data-src="./img/Starbucks-landing.png" data-fancybox data-caption="<h5 class='fg-theme'>Starbucks  </h5> <p>Starbucks-landingPage</p>
-            <a href=''>Click me</a>">
+            <a href=' https://landing-page-kohl-kappa.vercel.app/'>Click me</a>">
             <img src="./img/Starbucks-landing.png" alt="">
             <div class="img-caption">
               <h5 class="fg-theme">Starbucks</h5>
@@ -376,7 +379,7 @@
         </div>
         <div class="grid-item graphic ui-ux wireframes wow zoomIn">
           <div class="img-place" data-src="./img/calculator.png" data-fancybox data-caption="<h5 class='fg-theme'>calculator App</h5> <p>calculator</p>
-            <a href=''>Click me</a>">
+            <a href='https://js-calculator-black-pi.vercel.app/'>Click me</a>">
             <img src="./img/calculator.png" alt="">
             <div class="img-caption">
               <h5 class="fg-theme">calculator</h5>
@@ -386,7 +389,7 @@
         </div>
         <div class="grid-item graphic ui-ux wireframes wow zoomIn">
           <div class="img-place" data-src="./img/clock.png" data-fancybox data-caption="<h5 class='fg-theme'>Clock App</h5> <p>Time</p>
-            <a href=''>Click me</a>">
+            <a href='https://js-clock-omega.vercel.app/'>Click me</a>">
             <img src="./img/clock.png" alt="">
             <div class="img-caption">
               <h5 class="fg-theme">Clock</h5>
@@ -411,6 +414,26 @@
             <div class="img-caption">
               <h5 class="fg-theme">Weather App</h5>
               <p>React weather checking app</p>
+            </div> 
+          </div>
+        </div>
+        <div class="grid-item graphic ui-ux wireframes wow zoomIn">
+          <div class="img-place rounded" data-src="./img/Food Recipe .png" data-fancybox data-caption="<h5 class='fg-theme'>Food Recipe App</h5> <p>Food Recipe Search app</p>
+            <a href='https://react-food-recipe-plum.vercel.app'>Click me</a>">
+            <img src="./img/Food Recipe .png" alt="">
+            <div class="img-caption">
+              <h5 class="fg-theme">Food Recipe App</h5>
+              <p>Food Recipe Search app</p>
+            </div> 
+          </div>
+        </div>
+        <div class="grid-item graphic ui-ux wireframes wow zoomIn">
+          <div class="img-place rounded" data-src="./img/React Calculator.png" data-fancybox data-caption="<h5 class='fg-theme'>React Calculator App</h5> <p>React  Calculator app</p>
+            <a href='https://react-vite-calculator-ten.vercel.app'>Click me</a>">
+            <img src="./img/React Calculator.png" alt="">
+            <div class="img-caption">
+              <h5 class="fg-theme">React Calculator App</h5>
+              <p>React  Calculator app</p>
             </div> 
           </div>
         </div>
@@ -451,7 +474,7 @@
               <div class="col-12 mt-3 wow fadeInUp">
                 <textarea class="form-control" name="Message" rows="6" placeholder="Enter message here.."></textarea>
               </div>
-              <button type="submit" class="btn btn-theme mt-3 wow fadeInUp ml-1">Send Messages</button>
+              <button id="sent-btn" type="submit" class="btn btn-theme mt-3 wow fadeInUp ml-1">Send Messages</button>
             </div>
           </form>
         </div>
@@ -500,12 +523,15 @@
           <h3 class="fw-normal text-center">Subscribe</h3>
         </div>
         <div class="col-lg-6">
-          <form class="mb-3">
+          <form id="subscribe-form" class="mb-3">
             <div class="input-group">
-              <input type="text" class="form-control" placeholder="Email address">
-              <input type="submit" class="btn btn-theme no-shadow" value="Subscribe">
+                <input id="email-input" type="email" class="form-control" placeholder="Email address" required>
+                <button type="submit" class="btn btn-theme no-shadow"><i class="fas fa-paper-plane"></i> <span>Subscribe</span></button>
+                <i id="sent-icon" class="fas fa-check-circle"></i>
             </div>
-          </form>
+        </form>
+        
+        
         </div>
        
       </div>
@@ -514,24 +540,73 @@
   
   
   <script>
-    $("#submit-form").submit((e)=>{   
-        e.preventDefault()
-        $.ajax({
-            url:"https://script.google.com/macros/s/AKfycbx_NAP6Qsc7txjN9Re-XLznWUt68V_p9Ec8a5QbBws1BRytzCIE_TPZkonUJlo70j4GUw/exec",
-            data:$("#submit-form").serialize(),
-            method:"post",
-            success:function (response){
-              alert("Form submitted successfully")       
-              
-                window.location.reload()
-                //window.location.href="https://google.com"
-            },
-            error:function (err){
-                alert("Something Error ")
+ $("#submit-form").submit((e) => {
+    let sentBtn = document.getElementById("sent-btn");
+    sentBtn.disabled = true;
+    sentBtn.innerText = "Sending...";
+    sentBtn.classList.add("pulse"); // Add pulse animation
+    e.preventDefault();
+    $.ajax({
+        url: "https://script.google.com/macros/s/AKfycbx_NAP6Qsc7txjN9Re-XLznWUt68V_p9Ec8a5QbBws1BRytzCIE_TPZkonUJlo70j4GUw/exec",
+        data: $("#submit-form").serialize(),
+        method: "post",
+        success: function(response) {
+          
+            sentBtn.disabled = false;
+            sentBtn.innerText = "Message Sented!";
+            sentBtn.classList.remove("pulse"); // Remove pulse animation
+            setTimeout(() => {
+                window.location.reload();
+            }, 5000); // 5 seconds delay
+        },
+        error: function(err) {
+            alert("Something went wrong");
+            sentBtn.disabled = false;
+            sentBtn.innerText = "Send Message";
+            sentBtn.classList.remove("pulse"); // Remove pulse animation
+        }
+    });
+});
+$("#subscribe-form").submit((e) => {
+    e.preventDefault();
+    let email = $("#email-input").val();
+    let submitBtn = $("#subscribe-form button[type='submit']");
+    let sentIcon = $("#sent-icon");
 
-            }
-        })
-    })
+    // Change button text to indicate sending
+    submitBtn.find("span").text("Sending...");
+    
+    $.ajax({
+        url: "https://script.google.com/macros/s/AKfycbx_NAP6Qsc7txjN9Re-XLznWUt68V_p9Ec8a5QbBws1BRytzCIE_TPZkonUJlo70j4GUw/exec",
+        data: { email: email },
+        method: "POST",
+        success: function(response) {
+          
+            // Show sent icon
+            sentIcon.css("display", "inline-block");
+            // Reset button text after successful subscription
+            submitBtn.find("span").text("Subscribed");
+            // Hide sent icon after 2 seconds
+            setTimeout(() => {
+                sentIcon.css("display", "none");
+            }, 2000);
+            setTimeout(() => {
+                window.location.reload();
+            }, 5000);
+        },
+        error: function(err) {
+            alert("Something went wrong. Please try again.");
+            // Reset button text after an error
+            submitBtn.find("span").text("Subscribe");
+        }
+    });
+});
+
+
+
+
+
+
 </script>
   <script src="./js/jquery-3.5.1.min.js"></script>
     

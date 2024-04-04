@@ -4717,6 +4717,9 @@ input[type="button"].btn-block {
 .navbar-dark .navbar-nav .nav-link.active {
   background: #0000004a;
   border-radius: 15px;
+  border: solid 1px #646cff;
+  padding: 10px;
+
 }
 
 .navbar-dark .navbar-toggler {
