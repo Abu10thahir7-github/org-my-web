@@ -1474,3 +1474,10 @@ a:hover, a:active {
    
 }
 
+
+
+.navbar-nav{
+    display: flex;
+    gap: 25px;
+
+}
