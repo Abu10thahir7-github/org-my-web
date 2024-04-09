@@ -90,6 +90,10 @@
        
           </ul>
         </div>
+        <label class="switch">
+          <input type="checkbox" id="modeSwitch">
+          <span class="slider round"></span>
+      </label>
       </div>                                     
     </div> <!-- End Navbar -->
     <!-- Caption header -->
@@ -170,6 +174,12 @@
               <span class="caption">Web Design</span>
               <div class="progress">
                 <div class="progress-bar" role="progressbar" style="width: 99%;" aria-valuenow="75" aria-valuemin="0" aria-valuemax="100">99%</div>
+              </div>
+            </div>
+            <div class="progress-wrapper wow fadeInUp">
+              <span class="caption">MUI</span>
+              <div class="progress">
+                <div class="progress-bar" role="progressbar" style="width: 80%;" aria-valuenow="75" aria-valuemin="0" aria-valuemax="100">80%</div>
               </div>
             </div>
            
@@ -437,6 +447,16 @@
             </div> 
           </div>
         </div>
+        <div class="grid-item graphic ui-ux wireframes wow zoomIn">
+          <div class="img-place rounded" data-src="./img/React-E-Commerce.png" data-fancybox data-caption="<h5 class='fg-theme'>React E-Commerce App</h5> <p>React  E-Commerce Online Shopping app</p>
+            <a href='https://react-e-commerce-lime.vercel.app/'>Click me</a>">
+            <img src="./img/React-E-Commerce.png" alt="">
+            <div class="img-caption">
+              <h5 class="fg-theme">React E-Commerce Site</h5>
+              <p>Online Shopping </p>
+            </div> 
+          </div>
+        </div>
       </div> <!-- End gridder -->
 
     </div>
@@ -604,6 +624,27 @@ $("#subscribe-form").submit((e) => {
 
 
 
+const modeSwitch = document.getElementById('modeSwitch');
+
+// Check the user's preferred mode from localStorage
+const currentMode = localStorage.getItem('mode');
+if (currentMode) {
+    document.body.classList.add(currentMode);
+    if (currentMode === 'dark-mode') {
+        modeSwitch.checked = true;
+    }
+}
+
+// Toggle between dark mode and light mode
+modeSwitch.addEventListener('change', () => {
+    if (modeSwitch.checked) {
+        document.body.classList.add('dark-mode');
+        localStorage.setItem('mode', 'dark-mode');
+    } else {
+        document.body.classList.remove('dark-mode');
+        localStorage.setItem('mode', '');
+    }
+});
 
 
 

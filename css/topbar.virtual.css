@@ -142,10 +142,6 @@
 }
 
 
-.page-about {
-  background-color: #fff;
-}
-
 .page-about .img-place {
   width: 280px;
   background-color: #dfe0e6;
@@ -231,15 +227,15 @@
   margin-bottom: 10px;
 }
 
-.page-service {
-  background-color: #fff;
-}
+
 
 .card-service {
   margin: 16px auto;
   padding: 20px;
   background-color: #fff;
   border: 0;
+  height: 30vh;
+
 }
 
 .card-service .icon {
@@ -252,6 +248,7 @@
   font-size: 32px;
   border-radius: 50%;
   background-color: #f4f5f8;
+  
   transition: 0.5s; 
 }
 .card-service .icon:hover{
@@ -380,9 +377,6 @@
 }
 
 
-.page-blog {
-  background-color: #fff;
-}
 
 .post-grid {
   justify-content: center;
@@ -443,9 +437,6 @@
 }
 
 
-.page-contact {
-  background-color: #fff;
-}
 
 .vg-maps {
   width: 100%;
